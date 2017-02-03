@@ -1,11 +1,23 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import ToDos from '../../presentation/todoList/toDos'
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import ToDos from '../../presentation/todoList/toDos';
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos
+class ToDosContainer extends Component {
+  render(){
+    return(
+      <ToDos toDos={this.props.toDos}/>
+    );
   }
 }
 
-export default connect(mapStateToProps)(ToDos)
+ToDosContainer.propTypes = {
+  toDos: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => {
+  return {
+    toDos: state.todos
+  };
+};
+
+export default connect(mapStateToProps)(ToDosContainer);
