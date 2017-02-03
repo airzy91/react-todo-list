@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { addToDo } from '../../../actionCreators/toDoList_action_creator';
 import AddToDo from '../../presentation/todoList/addToDo';
@@ -31,6 +31,10 @@ class AddToDoContainer extends Component{
     );
   }
 }
+
+AddToDoContainer.propTypes = {
+  addToDo: PropTypes.func.isRequired
+};
 
 const mapActionCreatorsToProps = (dispatch) => {
   return {

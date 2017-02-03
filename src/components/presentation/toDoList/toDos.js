@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ToDoContainer from '../../container/toDoList/toDo';
 
 class ToDos extends Component{
@@ -12,11 +12,15 @@ class ToDos extends Component{
           </tr>
         </thead>
         <tbody>
-          {this.props.todos.map(todo => <ToDoContainer key={todo.id} {...todo} />)}
+          {this.props.toDos.ids.map(id => <ToDoContainer key={id} {...this.props.toDos.data[id]} />)}
         </tbody>
       </table>
     );
   }
 }
+
+ToDos.propTypes = {
+  toDos: PropTypes.object.isRequired
+};
 
 export default ToDos;

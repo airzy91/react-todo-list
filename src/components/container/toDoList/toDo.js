@@ -6,7 +6,6 @@ import ToDo from '../../presentation/toDoList/toDo';
 
 class ToDoContainer extends Component{
   _onToggle = () => {
-    //Add toggle to propTypes
     this.props.toggle({
       id: this.props.id,
       text: this.props.text,
@@ -15,7 +14,6 @@ class ToDoContainer extends Component{
   }
 
   _onDelete = () => {
-    //Add toggle to propTypes
     this.props.delete({
       id: this.props.id,
       text: this.props.text,
@@ -35,6 +33,8 @@ class ToDoContainer extends Component{
 }
 
 ToDoContainer.propTypes = {
+  toggle: PropTypes.func.isRequired,
+  delete: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   completed: PropTypes.bool.isRequired

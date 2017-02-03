@@ -37,25 +37,19 @@ export default function toDosReducer(todos = initialState, action){
         completed: false
       };
 
-      return {
-        ...todos
-      };
+      return todos;
 
     case actionConstants.TOGGLE_TODO:
       var todo = todos.data[action.data.id];
       todo.completed = !todo.completed;
 
-      return {
-        ...todos
-      };
+      return todos;
 
     case actionConstants.DELETE_TODO:
       delete todos.data[action.data.id];
-      //TODO, Remove ID from array
+      delete todos.ids[todos.ids.indexOf(action.data.id)];
 
-      return {
-        ...todos
-      };
+      return todos;
 
     default:
       return todos;

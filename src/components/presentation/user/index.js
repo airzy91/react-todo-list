@@ -4,8 +4,6 @@ import LoggedOut from './loggedOut';
 
 class User extends Component{
   render(){
-    //Moved the is logged in logic out into the container
-    //Keeps the presentation component logic as minimal as possible
     if(this.props.isLoggedIn){
       return (this._loggedIn());
     }

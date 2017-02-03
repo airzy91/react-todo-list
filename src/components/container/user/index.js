@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import User from '../../presentation/user/index.js';
 import * as userActions from '../../../actionCreators/user_action_creator';
@@ -33,6 +33,13 @@ class UserContainer extends Component{
     );
   }
 }
+
+UserContainer.propTypes = {
+  user: PropTypes.object,
+  isLoggedIn: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired
+};
 
 const mapStateToProps = (state) => {
   return {
