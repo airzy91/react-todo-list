@@ -17,7 +17,7 @@ const initialState = {
   data: {
     1: {
       id: 1,
-      text: "Foo",
+      text: 'Foo',
       completed: false
     }
   }
@@ -27,32 +27,32 @@ const initialState = {
 export default function toDosReducer(todos = initialState, action){
 
   switch(action.type){
-    case actionConstants.ADD_TODO:
-      var id = getId(todos);
+  case actionConstants.ADD_TODO:
+    var id = getId(todos);
 
-      todos.ids.push(id);
-      todos.data[id] = {
-        id,
-        text: action.data.text,
-        completed: false
-      };
+    todos.ids.push(id);
+    todos.data[id] = {
+      id,
+      text: action.data.text,
+      completed: false
+    };
 
-      return { ...todos };
+    return { ...todos };
 
-    case actionConstants.TOGGLE_TODO:
-      var todo = todos.data[action.data.id];
-      todo.completed = !todo.completed;
+  case actionConstants.TOGGLE_TODO:
+    var todo = todos.data[action.data.id];
+    todo.completed = !todo.completed;
 
-      return { ...todos };
+    return { ...todos };
 
-    case actionConstants.DELETE_TODO:
-      delete todos.data[action.data.id];
-      delete todos.ids[todos.ids.indexOf(action.data.id)];
+  case actionConstants.DELETE_TODO:
+    delete todos.data[action.data.id];
+    delete todos.ids[todos.ids.indexOf(action.data.id)];
 
-      return { ...todos };
+    return { ...todos };
 
-    default:
-      return todos;
+  default:
+    return todos;
   }
 
 }

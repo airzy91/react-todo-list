@@ -8,14 +8,21 @@ module.exports = {
     publicPath: '/'
   },
   module: {
-    loaders: [{
+    rules: [{
+      enforce: "pre",
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['react', 'es2015'],
-        plugins: ["transform-class-properties", "transform-object-rest-spread"]
-      }
+      loader: "eslint-loader"
+    },
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: "babel-loader"
+    },
+    {
+      test: /\.scss$/,
+      exclude: /node_modules/,
+      loaders: ["style-loader", "css-loader", "sass-loader"]
     }]
   }
 }
